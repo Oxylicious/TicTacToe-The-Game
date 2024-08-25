@@ -1,4 +1,4 @@
-# TicTacToe-The-Game
+# TicTacToe-The-Game by Charles Ivan M. Martin and Shane Aliyah A. Joven
 
 - Game Overview ✔
     The game is a simple yet lightweight where you canplay TicTacToe with your friends. It is coded in python using pygame library for easier modifications and easier to code       its game mechanics. The instruction is simple, to declare who is the winner, the player must form a straight line with their chosen figures and should be 3, otherwise it
