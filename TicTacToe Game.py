@@ -21,7 +21,7 @@ cross_color = (84, 84, 84)
 text_color = (80, 80, 80)
 
 # Fonts
-font = pygame.font.Font(None, 40)
+font = pygame.font.Font(None, 30)  # Reduced font size
 
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption('Tic Tac Toe')
@@ -89,9 +89,14 @@ def restart():
 
 def display_message(message):
     screen.fill(bg_color, (0, 300, width, 100))  # Clear the area where the text is displayed
-    text = font.render(message, True, text_color)
-    text_rect = text.get_rect(center=(width//2, 350))
-    screen.blit(text, text_rect)
+    
+    # Split the message into lines if necessary
+    lines = message.split("\n")
+    
+    for i, line in enumerate(lines):
+        text = font.render(line, True, text_color)
+        text_rect = text.get_rect(center=(width//2, 320 + i * 30))
+        screen.blit(text, text_rect)
 
 draw_lines()
 
@@ -117,10 +122,10 @@ while True:
                     mark_square(clicked_row, clicked_col, player)
                     if check_win(player):
                         game_over = True
-                        display_message(f"Player {player} wins!")
+                        display_message(f"Player {player} wins!\nPress R to restart")
                     elif is_board_full():
                         game_over = True
-                        display_message("It's a tie!")
+                        display_message("It's a tie!\nPress R to restart")
                     else:
                         player = 3 - player  # Switch player
                         display_message(f"Player {player}'s turn")
