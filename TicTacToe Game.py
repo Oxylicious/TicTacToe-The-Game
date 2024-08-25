@@ -89,10 +89,7 @@ def restart():
 
 def display_message(message):
     screen.fill(bg_color, (0, 300, width, 100))  # Clear the area where the text is displayed
-    
-    # Split the message into lines if necessary
     lines = message.split("\n")
-    
     for i, line in enumerate(lines):
         text = font.render(line, True, text_color)
         text_rect = text.get_rect(center=(width//2, 320 + i * 30))
